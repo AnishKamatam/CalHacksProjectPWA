@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './App.css'
 import logoImage from '/image.png'
 
@@ -32,7 +33,7 @@ const languages = [
   { flag: '🇮🇱', name: 'Hebrew' },
   { flag: '🇸🇦', name: 'Arabic' },
   { flag: '🇮🇷', name: 'Persian' },
-  { flag: '🇪🇬', name: 'Arabic ' },
+  { flag: '🇪🇬', name: 'Arabic (Egyptian)' },
   { flag: '🇳🇬', name: 'Yoruba' },
   { flag: '🇪🇹', name: 'Amharic' },
   { flag: '🇿🇦', name: 'Zulu' },
@@ -46,13 +47,18 @@ const languages = [
 
 function App() {
   const [direction, setDirection] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     setDirection(Math.random() > 0.5)
   }, [])
 
+  const handleTap = () => {
+    navigate('/home')
+  }
+
   return (
-    <div className="app">
+    <div className="app" onClick={handleTap}>
       <div className="container">
         <img src={logoImage} alt="Logo" className="logo" />
         <h1 className="title">Moli</h1>
