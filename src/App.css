@@ -320,3 +320,10 @@
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+
+.learn-content p {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+}

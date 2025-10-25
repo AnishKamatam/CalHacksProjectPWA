@@ -19,7 +19,9 @@ function Learn() {
       </div>
 
       <div className="learn-content">
-        {/* Content area - empty for now */}
+        {activeTab === 'flashcards' && <p>Flashcards content coming soon...</p>}
+        {activeTab === 'quiz' && <p>Quiz content coming soon...</p>}
+        {activeTab === 'practice' && <p>Practice content coming soon...</p>}
       </div>
 
       <div className="tab-bar">
