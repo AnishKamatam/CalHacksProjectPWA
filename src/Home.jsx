@@ -58,8 +58,7 @@ function Home() {
   const handleLanguageClick = () => {
     setFading(true)
     setTimeout(() => {
-      // Navigate to next page (placeholder for now)
-      console.log('Navigating to next page')
+      navigate('/learn')
     }, 300)
   }
 
