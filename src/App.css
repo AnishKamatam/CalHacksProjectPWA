@@ -280,6 +280,7 @@
 .learn-content {
   flex: 1;
   padding: 0 1.5rem;
+  padding-bottom: 100px;
 }
 
 .tab-bar {
@@ -289,9 +290,13 @@
   padding: 0.2rem;
   margin: 1rem 1rem;
   margin-bottom: max(1rem, env(safe-area-inset-bottom));
-  position: relative;
-  max-width: 90%;
+  position: fixed;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  max-width: calc(100% - 2rem);
   align-self: center;
+  z-index: 100;
 }
 
 .tab-button {
@@ -326,4 +331,257 @@
   color: #666;
   text-align: center;
   padding: 2rem;
+}
+
+.flashcards-container {
+  padding: 0.5rem 0;
+}
+
+.flashcards-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.flashcards-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.language-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f5f5f5;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+}
+
+.language-flag {
+  font-size: 1.2rem;
+}
+
+.dropdown-arrow {
+  color: #666;
+  transition: transform 0.2s ease;
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  margin-top: 0.5rem;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.language-option:last-child {
+  border-bottom: none;
+}
+
+.language-option:hover {
+  background: #f5f5f5;
+}
+
+.flashcard-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+}
+
+.flashcard-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.flashcards-date {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  color: #000;
+  text-align: left;
+  margin: 0;
+}
+
+.flashcards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.flashcard {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  min-height: 140px;
+  cursor: pointer;
+}
+
+.flashcard-detail {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.flashcard-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
+
+.progress-indicator {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+}
+
+.progress-bar {
+  height: 2px;
+  background: #E5E5E5;
+  margin: 0 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #007AFF;
+  transition: width 0.3s ease;
+}
+
+.question-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.flashcard-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+  max-width: 400px;
+}
+
+.flashcard-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.navigation-area {
+  flex: 1;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.left-area {
+  left: 0;
+  right: 50%;
+}
+
+.right-area {
+  right: 0;
+  left: 50%;
+}
+
+.flashcard-large {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flashcard-large.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  backface-visibility: hidden;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+.flashcard-icon-large {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.flashcard-word-large {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000;
+  text-align: center;
+}
+
+.flashcard-pronunciation {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #666;
+  text-align: center;
+  font-style: italic;
 }

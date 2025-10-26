@@ -55,10 +55,10 @@ function Home() {
     navigate('/')
   }
 
-  const handleLanguageClick = () => {
+  const handleLanguageClick = (language) => {
     setFading(true)
     setTimeout(() => {
-      navigate('/learn')
+      navigate('/learn', { state: { selectedLanguage: language } })
     }, 300)
   }
 
@@ -78,7 +78,7 @@ function Home() {
             <div 
               key={index} 
               className="language-chip-home"
-              onClick={handleLanguageClick}
+              onClick={() => handleLanguageClick(lang)}
             >
               <span className="flag-home">{lang.flag}</span>
               <span className="name-home">{lang.name}</span>
