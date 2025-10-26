@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Lightbulb, Home, Car, Users, Laptop, Keyboard, ChevronDown, Wine, Coffee, TreePine, Backpack, Shirt, Wallet } from 'lucide-react'
+import { Lightbulb, Home, Car, Users, Laptop, Keyboard, ChevronDown, Wine, Coffee, TreePine, Backpack, Shirt, Wallet, Book, Heart, Star, Music, Camera, Smartphone, Hotel, UtensilsCrossed, Apple } from 'lucide-react'
 import './App.css'
 
 function Learn() {
@@ -66,6 +66,15 @@ function Learn() {
     { translation: 'backpack', icon: Backpack },
     { translation: 'jacket', icon: Shirt },
     { translation: 'wallet', icon: Wallet },
+    { translation: 'book', icon: Book },
+    { translation: 'heart', icon: Heart },
+    { translation: 'star', icon: Star },
+    { translation: 'music', icon: Music },
+    { translation: 'camera', icon: Camera },
+    { translation: 'phone', icon: Smartphone },
+    { translation: 'hotel', icon: Hotel },
+    { translation: 'food', icon: UtensilsCrossed },
+    { translation: 'apple', icon: Apple },
   ]
 
   const handleBack = () => {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { ArrowLeft, Lightbulb, Home, Car, Users, Laptop, Keyboard, Wine, Coffee, TreePine, Backpack, Shirt, Wallet } from 'lucide-react'
+import { ArrowLeft, Lightbulb, Home, Car, Users, Laptop, Keyboard, Wine, Coffee, TreePine, Backpack, Shirt, Wallet, Book, Heart, Star, Music, Camera, Smartphone, Hotel, UtensilsCrossed, Apple } from 'lucide-react'
 import './App.css'
 
 const flashcards = [
@@ -16,6 +16,15 @@ const flashcards = [
   { translation: 'backpack', spanish: 'mochila', pronunciation: 'moh-chee-lah', icon: Backpack },
   { translation: 'jacket', spanish: 'chaqueta', pronunciation: 'chah-keh-tah', icon: Shirt },
   { translation: 'wallet', spanish: 'cartera', pronunciation: 'kahr-teh-rah', icon: Wallet },
+  { translation: 'book', spanish: 'libro', pronunciation: 'lee-broh', icon: Book },
+  { translation: 'heart', spanish: 'corazón', pronunciation: 'koh-rah-sohn', icon: Heart },
+  { translation: 'star', spanish: 'estrella', pronunciation: 'ehs-treh-yah', icon: Star },
+  { translation: 'music', spanish: 'música', pronunciation: 'moo-see-kah', icon: Music },
+  { translation: 'camera', spanish: 'cámara', pronunciation: 'kah-mah-rah', icon: Camera },
+  { translation: 'phone', spanish: 'teléfono', pronunciation: 'teh-leh-foh-noh', icon: Smartphone },
+  { translation: 'hotel', spanish: 'hotel', pronunciation: 'oh-tehl', icon: Hotel },
+  { translation: 'food', spanish: 'comida', pronunciation: 'koh-mee-dah', icon: UtensilsCrossed },
+  { translation: 'apple', spanish: 'manzana', pronunciation: 'mahn-sah-nah', icon: Apple },
 ]
 
 function FlashcardDetail() {
@@ -87,6 +96,15 @@ function FlashcardDetail() {
     }
   }
 
+  const handleListen = () => {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(currentCard.spanish)
+      utterance.lang = 'es-ES'
+      utterance.rate = 0.8
+      speechSynthesis.speak(utterance)
+    }
+  }
+
   return (
     <div className="flashcard-detail">
       <div className="flashcard-detail-header">
@@ -133,13 +151,16 @@ function FlashcardDetail() {
               <div className="flashcard-icon-large">
                 <IconComponent size={80} />
               </div>
-              <div className="flashcard-word-large">
-                {currentCard.spanish}
-              </div>
-              <div className="flashcard-pronunciation">
-                {currentCard.pronunciation}
-              </div>
+            <div className="flashcard-word-large">
+              {currentCard.spanish}
             </div>
+            <div className="flashcard-pronunciation">
+              {currentCard.pronunciation}
+            </div>
+            <button className="listen-button" onClick={handleListen}>
+              Listen
+            </button>
+          </div>
           </div>
         </div>
 
